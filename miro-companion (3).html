@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assessment in Radiation Protection Safety</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D2B4E;
+    --blue: #1A5EA8;
+    --sky: #EBF4FB;
+    --rule: #BDD7EE;
+    --white: #FFFFFF;
+    --green: #087429;
+    --green-light: #adf0c7;
+    --teal: #087429;
+    --teal-light: #c3faf5;
+    --yellow: #af7e02;
+    --yellow-light: #fff6b6;
+    --text: #111111;
+    --mid: #1A3A5C;
+    --soft: #1E4A8A;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── COPY PROTECTION ── */
+  body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--sky);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--navy);
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(26,94,168,0.4) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .header-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rule);
+    margin-bottom: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .header-tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--rule);
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    color: var(--white);
+    line-height: 1.15;
+    max-width: 600px;
+    margin-bottom: 1rem;
+  }
+  header h1 em {
+    font-style: italic;
+    color: var(--rule);
+  }
+  .header-sub {
+    font-size: 0.925rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 520px;
+    line-height: 1.65;
+  }
+  .by-line {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+
+  /* ── PAGE ── */
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    background: var(--white);
+    border-left: 4px solid var(--blue);
+    padding: 1.75rem 1.75rem 1.75rem 1.5rem;
+    margin: 2.5rem 0;
+    font-size: 1.02rem;
+    color: var(--mid);
+    line-height: 1.75;
+  }
+  .intro strong { color: var(--navy); }
+
+  /* ── THREE PILLARS ── */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 2.5rem 0;
+  }
+  .pillar {
+    background: var(--white);
+    padding: 1.5rem;
+  }
+  .pillar-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+  .pillar.looks .pillar-dot { background: var(--green); }
+  .pillar.sounds .pillar-dot { background: var(--teal); }
+  .pillar.feels .pillar-dot { background: var(--yellow); }
+
+  .pillar-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .pillar.looks .pillar-label { color: var(--green); }
+  .pillar.sounds .pillar-label { color: var(--teal); }
+  .pillar.feels .pillar-label { color: var(--yellow); }
+
+  .pillar h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+  .pillar p {
+    font-size: 0.845rem;
+    color: var(--mid);
+    line-height: 1.65;
+    margin-bottom: 0.875rem;
+  }
+  .pillar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .pillar ul li {
+    font-size: 0.8rem;
+    color: var(--mid);
+    padding-left: 0.875rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .pillar ul li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: var(--rule);
+    font-weight: 700;
+  }
+
+  /* ── MIRO SECTION ── */
+  .miro-section {
+    margin: 2.5rem 0;
+  }
+  .miro-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .miro-label::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 1.5px;
+    background: var(--soft);
+  }
+  .miro-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+  }
+  .miro-desc {
+    font-size: 0.9rem;
+    color: var(--mid);
+    margin-bottom: 1.25rem;
+    max-width: 640px;
+    line-height: 1.7;
+  }
+
+  /* ── HOW TO NAV ── */
+  .how-to {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .how-step {
+    background: var(--sky);
+    border: 1px solid var(--rule);
+    padding: 1rem;
+    border-radius: 2px;
+  }
+  .step-num {
+    font-size: 1.4rem;
+    font-family: 'DM Serif Display', serif;
+    color: var(--rule);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .step-text {
+    font-size: 0.8rem;
+    color: var(--mid);
+    line-height: 1.5;
+  }
+
+  /* ── IFRAME ── */
+  .miro-frame {
+    border: 1.5px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    background: #f0f5fa;
+  }
+  .miro-frame iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .miro-link-row {
+    margin-top: 0.6rem;
+    text-align: right;
+  }
+  .miro-link {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--blue);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+  .miro-link:hover { text-decoration: underline; }
+
+  /* ── DIVIDER ── */
+  .rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 2.5rem 0;
+  }
+
+  /* ── REFERENCES ── */
+  .refs {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    padding: 1.5rem;
+  }
+  .refs-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .refs ol {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .refs li {
+    font-size: 0.78rem;
+    color: var(--mid);
+    line-height: 1.6;
+    text-indent: -1.5rem;
+    padding-left: 1.5rem;
+  }
+  .refs li em { font-style: italic; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 1.25rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    border-top: 3px solid var(--blue);
+    margin-top: 3rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .pillars { grid-template-columns: 1fr; }
+    .how-to { grid-template-columns: 1fr; }
+    .page { padding: 0 1.25rem 3rem; }
+    header { padding: 2rem 1.25rem 1.75rem; }
+  }
+
+  /* ── ANIMATION ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  header h1 { animation: fadeUp 0.55s ease both; }
+  .header-sub { animation: fadeUp 0.55s 0.12s ease both; }
+  .by-line { animation: fadeUp 0.55s 0.22s ease both; }
+</style>
+</head>
+<body>
+
+<!-- COPY PROTECTION SCRIPTS -->
+<script>
+  // Disable right-click
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  // Disable common keyboard copy shortcuts
+  document.addEventListener('keydown', function(e) {
+    if (
+      (e.ctrlKey || e.metaKey) &&
+      ['c','x','a','u','s','p'].includes(e.key.toLowerCase())
+    ) {
+      e.preventDefault();
+    }
+    // Disable F12 and DevTools shortcuts
+    if (e.key === 'F12') e.preventDefault();
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey &&
+        ['i','j','c'].includes(e.key.toLowerCase())) {
+      e.preventDefault();
+    }
+  });
+
+  // Clear any selection on mouseup
+  document.addEventListener('mouseup', () => {
+    if (window.getSelection) window.getSelection().removeAllRanges();
+  });
+
+  // Disable drag
+  document.addEventListener('dragstart', e => e.preventDefault());
+</script>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="header-tag">Reference Guide</div>
+    <h1>Assessment in Online<br><em>Radiation Protection Safety</em></h1>
+    <p class="header-sub">What great assessment looks like, sounds like, and feels like for adult learners in an online radiation protection safety program  -  with an interactive mind map companion.</p>
+    <div class="by-line">Garielle Chen &nbsp;|&nbsp; Online Learning and Instructional Design</div>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro">
+    Radiation protection safety training has long relied on compliance-based assessment that confirms a learner has completed a module rather than confirming they can make a sound decision in a real radiation environment. <strong>This reference guide argues for a different approach</strong> grounded in adult learning theory, behaviour change research, and the specific cognitive demands of radiation protection work. The interactive mind map below maps this framework across three dimensions: what assessment looks like, sounds like, and feels like for learners in an online program.
+  </div>
+
+  <!-- THREE PILLARS -->
+  <div class="pillars">
+
+    <div class="pillar looks">
+      <div class="pillar-dot"></div>
+      <div class="pillar-label">Looks Like</div>
+      <h3>Visual Evidence of Learning</h3>
+      <p>Assessment that makes learning visible through what the learner produces or interacts with.</p>
+      <ul>
+        <li>Scenario-based decision tasks with radiation work area diagrams</li>
+        <li>Interactive dose calculation exercises</li>
+        <li>Labelled zone identification tasks</li>
+        <li>Dosimetry reading simulations</li>
+        <li>Progress dashboard across regulatory topics</li>
+      </ul>
+    </div>
+
+    <div class="pillar sounds">
+      <div class="pillar-dot"></div>
+      <div class="pillar-label">Sounds Like</div>
+      <h3>Effective Feedback Language</h3>
+      <p>Assessment feedback that teaches rather than merely evaluates  -  specific, plain, and grounded in real-world consequence.</p>
+      <ul>
+        <li>Explains reasoning behind dose limits, not just the number</li>
+        <li>Distinguishes public vs. occupational exposure contexts</li>
+        <li>Connects ALARA to professional obligation</li>
+        <li>Addresses internal vs. external exposure pathways</li>
+        <li>Suggests a concrete next step after every error</li>
+      </ul>
+    </div>
+
+    <div class="pillar feels">
+      <div class="pillar-dot"></div>
+      <div class="pillar-label">Feels Like</div>
+      <h3>The Learner's Experience</h3>
+      <p>Assessment that builds confidence, respects experience, and feels like preparation rather than evaluation.</p>
+      <ul>
+        <li>Relevant to the learner's actual job role and facility</li>
+        <li>Consequential but not punitive</li>
+        <li>Builds competence, not just compliance</li>
+        <li>Respects prior workplace experience</li>
+        <li>Self-directed and revisable</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <hr class="rule">
+
+  <!-- MIRO SECTION -->
+  <div class="miro-section">
+    <div class="miro-label">Interactive Mind Map</div>
+    <h2>Explore the Full Framework</h2>
+    <p class="miro-desc">The board below maps the complete assessment framework for online radiation protection safety education. Each branch expands into detailed explanation, applied examples, and the research rationale behind each approach. Use the navigation steps below to get the most from the board.</p>
+
+    <div class="how-to">
+      <div class="how-step">
+        <div class="step-num">01</div>
+        <div class="step-text"><strong>Start at the centre node</strong> labelled "Online Assessment in Radiation Protection Safety" to orient yourself to the overall structure.</div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">02</div>
+        <div class="step-text"><strong>Follow a coloured branch</strong> outward. Green for Looks Like, teal for Sounds Like, yellow for Feels Like. Each branch leads to specific strategies and examples.</div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">03</div>
+        <div class="step-text"><strong>Click any document node</strong> to open the full explanation, including applied radiation protection examples and APA-cited research rationale.</div>
+      </div>
+    </div>
+
+    <div class="miro-frame">
+      <iframe
+        src="https://miro.com/app/live-embed/uXjVGmj-i5Y=/?moveToViewport=-8000,-7000,16000,12000&embedId=rps-assessment-guide"
+        allowfullscreen
+        allow="fullscreen; clipboard-read; clipboard-write"
+        title="Assessment in Radiation Protection Safety - Interactive Mind Map by Garielle Chen"
+        loading="lazy">
+      </iframe>
+    </div>
+    <div class="miro-link-row">
+      <a class="miro-link" href="https://miro.com/app/board/uXjVGmj-i5Y=/" target="_blank" rel="noopener">Open full board in Miro &rarr;</a>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Assessment in Online Radiation Protection Safety &nbsp;|&nbsp; Garielle Chen &nbsp;|&nbsp; Online Learning and Instructional Design
+</footer>
+
+</body>
+</html>
